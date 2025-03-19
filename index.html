@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <title>Nuestro Cuento</title>
+    <style>
+        body {
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Dancing Script', cursive;
+    background: #ffeef2; /* Fondo suave */
+    animation: backgroundAnimation 15s ease infinite;
+    margin: 0;
+    padding: 0;
+        }
+        .book {
+            display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 350px; /* Ajuste de tamaño */
+    height: 450px;
+    perspective: 1500px;
+    transition: transform 0.5s ease-in-out;
+        }
+        .page {
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 1s;
+    transform-origin: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+        }
+
+        .page1 {
+            background-image: url('1.jpeg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+        .page2 {
+            background-image: url('2.jpeg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+        .page3 {
+            background-image: url('3.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+        .page4 {
+            background-image: url('4.jpeg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+        .page:nth-child(odd) {
+            background: #ffcad4;
+        }
+        .page.flipped {
+            transform: rotateY(-180deg);
+            z-index: 1; 
+        }
+        .controls {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #ff758f;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff4b6d;
+}
+        /* 📱 Responsive para móviles */
+@media (max-width: 500px) {
+    .book {
+        width: 250px;
+        height: 350px;
+    }
+    .page {
+        font-size: 16px;
+        padding: 15px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+         
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page page1">🎉 ¡Feliz cumpleaños, mi amor! 🎉</div>
+        <div class="page page2">💖 Bienvenida a nuestra historia, donde cada página es un momento especial 💖</div>
+        <div class="page page3">✨ Desde el día que nos conocimos, todo cambió. En cada mensaje, en cada risa, sentí que algo hermoso comenzaba ✨</div>
+        <div class="page page4">🌍 Aunque estemos lejos, siempre estamos cerca. En cada pensamiento, en cada mirada a la pantalla, en cada "te extraño" sincero 🌍</div>
+        <div class="page">💙 Eres increíble, nunca lo olvides. Tu fuerza, tu ternura, tu risa… cada parte de ti es un tesoro 💙</div>
+        <div class="page">👩‍👧 Ser mamá no es fácil, pero tú lo haces con un amor y una entrega que admiro profundamente 👩‍👧</div>
+        <div class="page">🚀 Estás construyendo tu propio sueño y eso me enorgullece. Sé que lograrás todo lo que te propongas 🚀</div>
+        <div class="page">🎶 Me encanta cómo me inspiras, cómo haces que cada día tenga algo especial 🎶</div>
+        <div class="page">💌 Este es solo un pequeño detalle, pero quiero que sepas que en cada palabra hay cariño, admiración y amor 💌</div>
+        <div class="page">💫 Este viaje es solo el comienzo de un capítulo nuevo en nuestra historia. ¡Cada paso me acerca más a ti! 💫</div>
+        <div class="page">🌟 No hay distancia que pueda separarnos, y aunque todavía no nos hayamos abrazado, siento tu cariño más cerca que nunca 🌟</div>
+        <div class="page">🌅 Imagino cómo será despertar a tu lado, conocer tu ciudad, tus costumbres… y compartir juntos esos pequeños detalles de cada día 🌅</div>
+        <div class="page">🎁 Este viaje también es un regalo para ti, una forma de demostrarte cuánto te quiero y lo importante que eres para mí 🎁</div>
+        <div class="page">🎉 Cada conversación, cada risa, cada expectativa… todo eso hace que este viaje sea aún más especial. Pronto estaremos juntos, y todo será aún mejor 🎉</div>
+        <div class="page">🌺 No importa que estemos a kilómetros de distancia, te siento tan cerca, como si estuvieras aquí mismo. Y pronto, lo estarás 🌺</div>
+        <div class="page">💬 Habrá tanto por decir, por hacer y por sentir. Ya me imagino cada momento, y cada uno de esos momentos será inolvidable 💬</div>
+    </div>
+    <div class="controls">
+        <button onclick="nextPage()">➡️</button>
+        <button onclick="prevPage()">⬅️</button>
+    </div>
+
+    <script src="script.js"></script>
+    </script>
+</body>
+</html>
