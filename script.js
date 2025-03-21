@@ -1,51 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentPage = 0;
     const pages = document.querySelectorAll('.page');
+    const audio = document.getElementById("backgroundMusic");
+    let audioPlayed = false; // Bandera para evitar múltiples inicios
 
     function updateZIndex() {
         pages.forEach((page, index) => {
             if (index < currentPage) {
-                // Páginas ya volteadas deben ir al fondo
-                page.style.zIndex = 1;
+                page.style.zIndex = 1; // Páginas ya volteadas van al fondo
             } else if (index === currentPage) {
-                // Página actual debe estar al frente
-                page.style.zIndex = 100;
+                page.style.zIndex = 100; // Página actual al frente
             } else {
-                // Páginas que aún no han sido volteadas deben tener orden descendente
-                page.style.zIndex = pages.length - index;
+                page.style.zIndex = pages.length - index; // Orden descendente
             }
         });
     }
 
-    // Función para avanzar la página
-    window.nextPage = function () {
-        if (currentPage < pages.length) {
+    // Función para avanzar página
+    function nextPage() {
+        if (!audioPlayed) {
+            audio.play().then(() => {
+                console.log("🎶 Audio reproduciéndose...");
+            }).catch(error => {
+                console.log("⚠️ El navegador bloqueó la reproducción automática.");
+            });
+            audioPlayed = true;
+        }
+
+        if (currentPage < pages.length - 1) {
             const page = pages[currentPage];
             page.classList.add('flipped');
 
-            // Esperamos a que termine la animación antes de cambiar el z-index
             setTimeout(() => {
-                page.style.zIndex = 1; // Lo mandamos al fondo después de la animación
+                page.style.zIndex = 1; // Mandamos la página al fondo
                 currentPage++;
                 updateZIndex();
-            }, 600); // Ajusta este tiempo según la duración de la animación en el CSS
-        }
-    };
 
-    // Función para retroceder la página
-    window.prevPage = function () {
+                // Si estamos en la última página, mostramos el mensaje final
+                if (currentPage === pages.length - 1) {
+                    document.querySelector('.final-message').style.opacity = "1";
+                }
+            }, 600);
+        }
+    }
+
+    // Función para retroceder página
+    function prevPage() {
         if (currentPage > 0) {
             currentPage--;
             const page = pages[currentPage];
             page.classList.remove('flipped');
 
-            // Aseguramos que la página tenga un z-index alto para que aparezca nuevamente
             setTimeout(() => {
                 page.style.zIndex = pages.length - currentPage;
                 updateZIndex();
-            }, 600); // Ajusta según la duración de la animación
+            }, 600);
         }
-    };
+    }
+
+    // Exponer las funciones al objeto window
+    window.nextPage = nextPage;
+    window.prevPage = prevPage;
 
     // Configura los z-index iniciales
     updateZIndex();

@@ -29,43 +29,137 @@
         }
         .page {
             width: 100%;
-    height: 100%;
+            height: 100%;
+            position: absolute;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 1s;
+            transform-origin: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        
+        .page::before {
+    content: "";
     position: absolute;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 1s;
-    transform-origin: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit; /* Tomar la imagen de fondo */
     background-size: cover;
     background-position: center;
-        }
+    opacity: 0.3; /* Ajusta la transparencia (de 0 a 1) */
+    z-index: -1; /* Mantener la imagen detrás del contenido */
+}
 
-        .page1 {
+.page span {
+    position: relative;
+    z-index: 1;
+    color: black; /* Asegúrate de que el color del texto sea visible */
+}
+
+        .page1::before {
             background-image: url('1.jpeg') !important;
             background-size: cover !important;
             background-position: center !important;
         }
-        .page2 {
+        .page2::before {
             background-image: url('2.jpeg') !important;
             background-size: cover !important;
             background-position: center !important;
         }
-        .page3 {
+        .page3::before {
             background-image: url('3.jpg') !important;
             background-size: cover !important;
             background-position: center !important;
         }
-        .page4 {
-            background-image: url('4.jpeg') !important;
+        .page4::before {
+            background-image: url('4.jpg') !important;
             background-size: cover !important;
             background-position: center !important;
         }
+
+        .page5::before {
+            background-image: url('5.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page6::before {
+            background-image: url('6.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page7::before {
+            background-image: url('7.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page8::before {
+            background-image: url('8.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page9::before {
+            background-image: url('9.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page10::before {
+            background-image: url('10.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page11::before {
+            background-image: url('11.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page12::before {
+            background-image: url('12.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page13::before {
+            background-image: url('13.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page14::before {
+            background-image: url('14.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page15::before {
+            background-image: url('15.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .page16::before {
+            background-image: url('16.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
         .page:nth-child(odd) {
             background: #ffcad4;
         }
@@ -81,18 +175,50 @@
         }
         button {
             padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background-color: #ff758f;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s;
+            margin: 5px;
+            border: none;
+            background-color: #ff758f;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
         }
         button:hover {
             background-color: #ff4b6d;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap'); /* Fuente cursiva elegante */
+
+.final-message {
+    font-size: 0.62rem; /* Ajusta el tamaño de la fuente, puedes cambiarlo */
+    text-align: center;
+    opacity: 0; /* Lo mantenemos oculto hasta que sea visible */
+    transition: opacity 0.5s ease-in-out; /* Agrega una transición suave para cuando aparezca */
+    padding: 20px; /* Añade un poco de espacio alrededor del texto */
+    width: 100%; /* Asegúrate de que ocupe el ancho completo */
+    max-width: 90%; /* Limita el tamaño máximo para evitar desbordamientos */
+    word-wrap: break-word; /* Asegura que las palabras largas se ajusten si es necesario */
+    line-height: 1.5; /* Ajusta la altura de la línea para mejor legibilidad */
+    margin: 0 auto; /* Centra el mensaje */
+    overflow: hidden; /* Evita el desbordamiento de texto */
+    white-space: normal; /* Permite saltos de línea si es necesario */
+}
+
+.final-message h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e91e63;  /* Color del encabezado */
+}
+
+.final-message p {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
         /* 📱 Responsive para móviles */
 @media (max-width: 500px) {
     .book {
@@ -117,23 +243,38 @@
         <div class="page page2">💖 Bienvenida a nuestra historia, donde cada página es un momento especial 💖</div>
         <div class="page page3">✨ Desde el día que nos conocimos, todo cambió. En cada mensaje, en cada risa, sentí que algo hermoso comenzaba ✨</div>
         <div class="page page4">🌍 Aunque estemos lejos, siempre estamos cerca. En cada pensamiento, en cada mirada a la pantalla, en cada "te extraño" sincero 🌍</div>
-        <div class="page">💙 Eres increíble, nunca lo olvides. Tu fuerza, tu ternura, tu risa… cada parte de ti es un tesoro 💙</div>
-        <div class="page">👩‍👧 Ser mamá no es fácil, pero tú lo haces con un amor y una entrega que admiro profundamente 👩‍👧</div>
-        <div class="page">🚀 Estás construyendo tu propio sueño y eso me enorgullece. Sé que lograrás todo lo que te propongas 🚀</div>
-        <div class="page">🎶 Me encanta cómo me inspiras, cómo haces que cada día tenga algo especial 🎶</div>
-        <div class="page">💌 Este es solo un pequeño detalle, pero quiero que sepas que en cada palabra hay cariño, admiración y amor 💌</div>
-        <div class="page">💫 Este viaje es solo el comienzo de un capítulo nuevo en nuestra historia. ¡Cada paso me acerca más a ti! 💫</div>
-        <div class="page">🌟 No hay distancia que pueda separarnos, y aunque todavía no nos hayamos abrazado, siento tu cariño más cerca que nunca 🌟</div>
-        <div class="page">🌅 Imagino cómo será despertar a tu lado, conocer tu ciudad, tus costumbres… y compartir juntos esos pequeños detalles de cada día 🌅</div>
-        <div class="page">🎁 Este viaje también es un regalo para ti, una forma de demostrarte cuánto te quiero y lo importante que eres para mí 🎁</div>
-        <div class="page">🎉 Cada conversación, cada risa, cada expectativa… todo eso hace que este viaje sea aún más especial. Pronto estaremos juntos, y todo será aún mejor 🎉</div>
-        <div class="page">🌺 No importa que estemos a kilómetros de distancia, te siento tan cerca, como si estuvieras aquí mismo. Y pronto, lo estarás 🌺</div>
-        <div class="page">💬 Habrá tanto por decir, por hacer y por sentir. Ya me imagino cada momento, y cada uno de esos momentos será inolvidable 💬</div>
+        <div class="page page5">💙 Eres increíble, nunca lo olvides. Tu fuerza, tu ternura, tu risa… cada parte de ti es un tesoro 💙</div>
+        <div class="page page6">👩‍👧 Ser mamá no es fácil, pero tú lo haces con un amor y una entrega que admiro profundamente 👩‍👧</div>
+        <div class="page page7">🚀 Estás construyendo tu propio sueño y eso me enorgullece. Sé que lograrás todo lo que te propongas 🚀</div>
+        <div class="page page8">🎶 Me encanta cómo me inspiras, cómo haces que cada día tenga algo especial 🎶</div>
+        <div class="page page9">💌 Este es solo un pequeño detalle, pero quiero que sepas que en cada palabra hay cariño, admiración y amor 💌</div>
+        <div class="page page10">💫 Este viaje es solo el comienzo de un capítulo nuevo en nuestra historia. ¡Cada paso me acerca más a ti! 💫</div>
+        <div class="page page11">🌟 No hay distancia que pueda separarnos, y aunque todavía no nos hayamos abrazado, siento tu cariño más cerca que nunca 🌟</div>
+        <div class="page page12">🌅 Imagino cómo será despertar a tu lado, conocer tu ciudad, tus costumbres… y compartir juntos esos pequeños detalles de cada día 🌅</div>
+        <div class="page page13">🎁 Este viaje también es un regalo para ti, una forma de demostrarte cuánto te quiero y lo importante que eres para mí 🎁</div>
+        <div class="page page14">🎉 Cada conversación, cada risa, cada expectativa… todo eso hace que este viaje sea aún más especial. Pronto estaremos juntos, y todo será aún mejor 🎉</div>
+        <div class="page page15">🌺 No importa que estemos a kilómetros de distancia, te siento tan cerca, como si estuvieras aquí mismo. Y pronto, lo estarás 🌺</div>
+        <div class="page page16">💬 Habrá tanto por decir, por hacer y por sentir. Ya me imagino cada momento, y cada uno de esos momentos será inolvidable 💬</div>
+        <div class="page last-page">
+            <div class="final-message">
+                <h2>Hola mi amor precioso</h2>
+                <p>Espero y este pequeño detalle de mi corazoncito de pollo de color te guste. Yo sé que, por el momento, la única manera de expresarnos cariño y cuánto nos queremos es a través de una pantalla de celular cuando chateamos, conversamos por llamada y hacemos videollamada cuando extrañamos vernos, pero como sabrás, ya tenemos fecha para vernos en persona y espero ese día con muchas ansias.</p>
+                <p>Me gustas mucho y lo sabes, no lo dudes nunca. Si a veces me porto un poco raro, pero es porque siempre quiero saber de ti y eso me da un poco de melancolía. Pero como dije, debemos confiar el uno en el otro para que esto que sentimos funcione.</p>
+                <p>Espero que este día de tu cumpleaños sea increíble, mi amor. Pásalo lindo junto a tu familia y a la hipopamo. Te quiero, te extraño, deseo tanto abrazarte, contarte mis cosas en persona, llorar contigo si es que el momento lo amerita, triunfar juntos y salir adelante de los momentos en los cuales la vida nos ponga pruebas.</p>
+                <p>Te amo mucho también, mi chicuela hermosa. ¡Feliz CUMPLEAÑOS a la mujer que anhelo con todo el alma conocer y con la que deseo tener una vida si Dios así lo quiere!</p>
+            </div>
+        </div>
+    
     </div>
     <div class="controls">
         <button onclick="nextPage()">➡️</button>
         <button onclick="prevPage()">⬅️</button>
     </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="EllaEsMiTodo.mp3" type="audio/mp3">
+        Tu navegador no soporta el audio.
+    </audio>
 
     <script src="script.js"></script>
     </script>
